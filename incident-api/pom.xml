@@ -70,6 +70,10 @@
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-rest-hal-explorer</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-batch</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -91,6 +95,98 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.batch</groupId>
+			<artifactId>spring-batch-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Terasoluna ライブラリ -->
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-common</artifactId>
+			<version>5.7.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-web</artifactId>
+			<version>5.7.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-web-jsp</artifactId>
+			<version>5.7.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-security-web</artifactId>
+			<version>5.7.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-string</artifactId>
+			<version>5.7.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-codepoints</artifactId>
+			<version>5.7.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-validator</artifactId>
+			<version>5.7.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw.codepoints</groupId>
+			<artifactId>terasoluna-gfw-codepoints-jisx0201</artifactId>
+			<version>5.7.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw.codepoints</groupId>
+			<artifactId>terasoluna-gfw-codepoints-jisx0208</artifactId>
+			<version>5.7.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw.codepoints</groupId>
+			<artifactId>terasoluna-gfw-codepoints-jisx0208kanji</artifactId>
+			<version>5.7.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.terasoluna.gfw</groupId>
+			<artifactId>terasoluna-gfw-jodatime</artifactId>
+			<version>5.7.0.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>1.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-core</artifactId>
+			<version>1.27</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-parsers</artifactId>
+			<version>1.27</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.dozermapper</groupId>
+			<artifactId>dozer-spring-boot-starter</artifactId>
+			<version>6.5.2</version>
+		</dependency>
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
