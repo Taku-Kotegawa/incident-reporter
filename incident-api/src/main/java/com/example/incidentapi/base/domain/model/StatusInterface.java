@@ -10,12 +10,12 @@ public interface StatusInterface {
      *
      * @param status ステータス
      */
-    void setStatus(String status);
+    void setStatus(Status status);
 
     /**
      * ステータスの取得
      *
      * @return ステータスのコード
      */
-    String getStatus();
+    Status getStatus();
 }
