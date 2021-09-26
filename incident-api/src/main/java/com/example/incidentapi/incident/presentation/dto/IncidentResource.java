@@ -3,6 +3,7 @@ package com.example.incidentapi.incident.presentation.dto;
 import com.example.incidentapi.base.domain.model.Status;
 import com.example.incidentapi.incident.domain.model.IncidentLevel;
 import com.example.incidentapi.incident.domain.model.IncidentStatus;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,15 +12,15 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Set;
 
-//@ApiModel(description = "説明", discriminator = "ディスクライム", reference = "リファレンス")
 @Data
+@Schema(name = "Incident", description = "障害情報")
 public class IncidentResource implements Serializable {
 
     /**
      * id
      */
     @NotNull
-//    @ApiModelProperty(value = "主キーです")
+    @Schema(description = "障害情報を一意に表す自動連番", example = "100")
     private Long id;
 
     /**

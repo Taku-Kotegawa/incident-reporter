@@ -1,4 +1,4 @@
-package com.example.incidentapi.incident.presentation.controller;
+package com.example.incidentapi.incident.presentation.api;
 
 import com.example.incidentapi.common.datatables.DataTablesInput;
 import com.example.incidentapi.incident.application.service.IncidentService;
@@ -7,22 +7,17 @@ import com.example.incidentapi.incident.domain.model.IncidentAuthority;
 import com.example.incidentapi.incident.domain.model.Incidents;
 import com.example.incidentapi.incident.presentation.dto.IncidentResource;
 import com.github.dozermapper.core.Mapper;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.jwt.Jwt;
-import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@Api(value = "値", tags = "インシデント")
+@Tag(name = "Incident Resource", description = "障害情報")
 @RequestMapping("api/incidents")
 @RestController
 @AllArgsConstructor
@@ -35,8 +30,7 @@ public class IncidentRestController {
     /**
      * 検索(一覧の取得)
      */
-//    @ApiOperation("検索(一覧の取得)")
-//    @ApiParam(value = "api_param")
+    @Operation(summary = "検索(一覧の取得)", description = "障害情報の一覧を取得します。登録されている全てのデータが一括して取得できます。")
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     List<IncidentResource> list() {
 

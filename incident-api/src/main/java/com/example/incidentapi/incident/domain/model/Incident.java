@@ -4,8 +4,7 @@ import com.example.incidentapi.base.domain.model.AbstractEntity;
 import com.example.incidentapi.base.domain.model.FileManaged;
 import com.example.incidentapi.base.domain.model.Status;
 import com.example.incidentapi.base.domain.model.StatusInterface;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModelProperty;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
