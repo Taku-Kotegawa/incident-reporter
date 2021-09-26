@@ -35,6 +35,7 @@ public class IncidentServiceImpl extends AbstractNodeService<Incident, Long> imp
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<MailSendHistory> mailHistory(Long id) {
 
         // TODO 実装
@@ -43,6 +44,7 @@ public class IncidentServiceImpl extends AbstractNodeService<Incident, Long> imp
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Incident> history(Long id) {
 
         // TODO 実装

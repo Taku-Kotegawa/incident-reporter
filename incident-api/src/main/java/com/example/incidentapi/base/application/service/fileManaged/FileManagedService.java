@@ -1,7 +1,7 @@
-package com.example.incidentapi.base.application.service;
+package com.example.incidentapi.base.application.service.fileManaged;
 
 
-import com.example.incidentapi.base.domain.model.FileManaged;
+import com.example.incidentapi.base.domain.model.fileManaged.FileManaged;
 import org.apache.tika.exception.TikaException;
 import org.springframework.web.multipart.MultipartFile;
 

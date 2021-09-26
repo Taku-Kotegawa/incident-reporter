@@ -1,6 +1,7 @@
-package com.example.incidentapi.base.domain.model;
+package com.example.incidentapi.base.domain.model.fileManaged;
 
 
+import com.example.incidentapi.base.domain.model.AbstractEntity;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.http.ContentDisposition;

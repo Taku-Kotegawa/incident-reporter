@@ -1,7 +1,6 @@
 package com.example.incidentapi.incident.domain.model;
 
 import com.example.incidentapi.base.domain.model.AbstractEntity;
-import com.example.incidentapi.base.domain.model.FileManaged;
 import com.example.incidentapi.base.domain.model.Status;
 import com.example.incidentapi.base.domain.model.StatusInterface;
 
@@ -11,7 +10,6 @@ import lombok.ToString;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;

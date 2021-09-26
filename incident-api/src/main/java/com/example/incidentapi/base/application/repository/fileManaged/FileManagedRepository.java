@@ -1,8 +1,8 @@
-package com.example.incidentapi.base.application.repository;
+package com.example.incidentapi.base.application.repository.fileManaged;
 
 
 
-import com.example.incidentapi.base.domain.model.FileManaged;
+import com.example.incidentapi.base.domain.model.fileManaged.FileManaged;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

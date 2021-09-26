@@ -2,7 +2,7 @@ package com.example.incidentapi.base.domain.model.variable;
 
 
 import com.example.incidentapi.base.domain.model.AbstractEntity;
-import com.example.incidentapi.base.domain.model.FileManaged;
+import com.example.incidentapi.base.domain.model.fileManaged.FileManaged;
 import com.example.incidentapi.base.domain.model.Status;
 import com.example.incidentapi.base.domain.model.StatusInterface;
 import lombok.*;

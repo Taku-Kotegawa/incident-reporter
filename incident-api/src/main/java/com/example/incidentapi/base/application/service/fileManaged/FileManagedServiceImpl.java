@@ -1,9 +1,9 @@
-package com.example.incidentapi.base.application.service;
+package com.example.incidentapi.base.application.service.fileManaged;
 
 
-import com.example.incidentapi.base.application.repository.FileManagedRepository;
-import com.example.incidentapi.base.domain.model.FileManaged;
-import com.example.incidentapi.base.domain.model.FileStatus;
+import com.example.incidentapi.base.application.repository.fileManaged.FileManagedRepository;
+import com.example.incidentapi.base.domain.model.fileManaged.FileManaged;
+import com.example.incidentapi.base.domain.model.fileManaged.FileStatus;
 import com.example.incidentapi.common.datetime.CustomDateFactory;
 import com.example.incidentapi.common.message.MessageKeys;
 import com.example.incidentapi.common.util.MimeTypes;

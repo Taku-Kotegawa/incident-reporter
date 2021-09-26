@@ -15,6 +15,8 @@ import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Tag(name = "Incident Resource", description = "障害情報")
@@ -49,7 +51,6 @@ public class IncidentRestController {
         return beanMapper.map(incident, Incident.class);
     }
 
-
     /**
      * 参照
      */
@@ -62,7 +63,8 @@ public class IncidentRestController {
     /**
      * 新規登録
      */
-    @PostMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
     IncidentResource create(@RequestBody @Validated IncidentResource resource) {
         authority.hasAuthority("create");
         return toResource(incidentService.save(toEntity(resource)));
@@ -72,9 +74,16 @@ public class IncidentRestController {
      * 変更(全項目)
      */
     @PutMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    IncidentResource update(@RequestBody @Validated IncidentResource resource) {
+    IncidentResource update(@PathVariable("id") Long id, @RequestBody @Validated IncidentResource resource) {
         authority.hasAuthority("update");
-        return toResource(incidentService.save(toEntity(resource)));
+
+        Incident before = incidentService.findById(id);
+
+        Incident after = toEntity(resource);
+        after.setId(id);
+        after.setVersion(before.getVersion());
+
+        return toResource(incidentService.save(after));
     }
 
     /**

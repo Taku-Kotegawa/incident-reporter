@@ -1,4 +1,4 @@
-package com.example.incidentapi.base.domain.model;
+package com.example.incidentapi.base.domain.model.fileManaged;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

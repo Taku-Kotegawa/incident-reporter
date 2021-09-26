@@ -19,7 +19,6 @@ public class IncidentResource implements Serializable {
     /**
      * id
      */
-    @NotNull
     @Schema(description = "障害情報を一意に表す自動連番", example = "100")
     private Long id;
 
