@@ -1,16 +1,16 @@
 package com.example.incidentfrontend.incident.presentation.controller.incident;
 
-import com.example.incidentfrontend.incident.application.service.KeycloakService;
-import com.example.incidentfrontend.incident.application.service.OAuth2TokenService;
+import com.example.incidentfrontend.base.application.KeycloakService;
+import com.example.incidentfrontend.base.application.OAuth2TokenService;
+import com.example.incidentfrontend.config.OAuth2Properties;
+import com.example.incidentfrontend.incident.common.WebClientSample;
 import com.example.incidentfrontend.incident.presentation.dto.IncidentResource;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.AllArgsConstructor;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
-import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,19 +21,15 @@ import java.util.List;
 
 @Controller
 @RequestMapping("incident")
+@AllArgsConstructor
 public class IncidentController {
 
     private final OAuth2TokenService oAuth2TokenService;
     private final RestTemplate restTemplate;
     private final KeycloakService keycloakService;
-    @Value("${resource-server.base-uri}")
-    private String resourceServerBaseUri;
+    private final WebClientSample webClientSample;
+    private final OAuth2Properties oauth2Properties;
 
-    public IncidentController(ClientRegistrationRepository clientRegistrationRepository, OAuth2AuthorizedClientService authorizedClientService, RestTemplate restTemplate, OAuth2TokenService oAuth2TokenService, KeycloakService keycloakService) {
-        this.oAuth2TokenService = oAuth2TokenService;
-        this.restTemplate = restTemplate;
-        this.keycloakService = keycloakService;
-    }
 
     @GetMapping("")
     public String top() {
@@ -44,10 +40,8 @@ public class IncidentController {
     @GetMapping("list")
     public String list(Model model, @AuthenticationPrincipal Authentication auth) {
 
-
         String accessToken = oAuth2TokenService.getAccessTokenValue();
-        String uri = resourceServerBaseUri + "/api/incidents";
-
+        String uri = oauth2Properties.getResourceServerUri() + "/api/incidents";
 
         RequestEntity requestEntity = RequestEntity
                 .get(uri)
@@ -58,7 +52,6 @@ public class IncidentController {
                 restTemplate.exchange(requestEntity, new ParameterizedTypeReference<List<IncidentResource>>(){});
 
         model.addAttribute("incidentList", responseEntity.getBody());
-
 
         return "incident/list";
 

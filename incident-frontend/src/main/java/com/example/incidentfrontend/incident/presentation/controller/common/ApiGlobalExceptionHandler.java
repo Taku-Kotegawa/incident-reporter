@@ -1,5 +1,7 @@
-package com.example.incidentfrontend.common.api;
+package com.example.incidentfrontend.incident.presentation.controller.common;
 
+import com.example.incidentfrontend.common.api.ApiError;
+import com.example.incidentfrontend.common.api.ApiErrorCreator;
 import lombok.AllArgsConstructor;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.dao.PessimisticLockingFailureException;
@@ -19,7 +21,7 @@ import org.terasoluna.gfw.common.exception.ExceptionCodeResolver;
 import org.terasoluna.gfw.common.exception.ResourceNotFoundException;
 import org.terasoluna.gfw.common.exception.ResultMessagesNotificationException;
 
-@ControllerAdvice
+//@ControllerAdvice
 @AllArgsConstructor
 public class ApiGlobalExceptionHandler extends ResponseEntityExceptionHandler {
 

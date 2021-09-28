@@ -1,8 +1,7 @@
-package com.example.incidentfrontend.incident.application.service;
+package com.example.incidentfrontend.base.application;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
+import com.example.incidentfrontend.config.OAuth2Properties;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2ClientProperties;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -15,24 +14,26 @@ import java.net.URI;
 /**
  * Keycloakに対する操作を提供するクラス。
  */
+@Slf4j
 @Service
 public class KeycloakService {
-
-    private static final Logger logger = LoggerFactory.getLogger(KeycloakService.class);
 
     private final RestTemplate restTemplate;
     private final OAuth2TokenService oAuth2TokenService;
     private final OAuth2ClientProperties.Registration registration;
+    private final OAuth2Properties oAuth2Properties;
 
-    @Value("${logout-uri}")
-    private String logoutUri;
+//    @Value("${logout-uri}")
+//    private String logoutUri;
 
     public KeycloakService(RestTemplate restTemplate,
                            OAuth2TokenService oAuth2TokenService,
-                           OAuth2ClientProperties oAuth2ClientProperties) {
+                           OAuth2ClientProperties oAuth2ClientProperties,
+                           OAuth2Properties oAuth2Properties) {
         this.restTemplate = restTemplate;
         this.oAuth2TokenService = oAuth2TokenService;
-        this.registration = oAuth2ClientProperties.getRegistration().get("todo-api");;
+        this.registration = oAuth2ClientProperties.getRegistration().get("todo-api");
+        this.oAuth2Properties = oAuth2Properties;
     }
 
     /**
@@ -51,11 +52,11 @@ public class KeycloakService {
         // リクエストを作成
         RequestEntity<MultiValueMap<String, String>> requestEntity =
                 new RequestEntity<>(formParams, httpHeaders, HttpMethod.POST,
-                        URI.create(logoutUri));
+                        URI.create(oAuth2Properties.getLogoutUri()));
         // POSTリクエスト送信（ログアウト実行）
         ResponseEntity<String> responseEntity = restTemplate.exchange(requestEntity, String.class);
         // ログ出力
-        logger.info("{}", responseEntity.getStatusCode());
-        logger.info("{}", responseEntity.getBody());
+        log.info("{}", responseEntity.getStatusCode());
+        log.info("{}", responseEntity.getBody());
     }
 }

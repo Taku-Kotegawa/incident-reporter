@@ -15,8 +15,6 @@ import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Tag(name = "Incident Resource", description = "障害情報")
@@ -28,6 +26,7 @@ public class IncidentRestController {
     private final IncidentService incidentService;
     private final Mapper beanMapper;
     private final IncidentAuthority authority;
+
 
     /**
      * 検索(一覧の取得)

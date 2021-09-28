@@ -1,6 +1,6 @@
 package com.example.incidentfrontend.config;
 
-import com.example.incidentfrontend.incident.application.service.KeycloakService;
+import com.example.incidentfrontend.base.application.KeycloakService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Configuration;

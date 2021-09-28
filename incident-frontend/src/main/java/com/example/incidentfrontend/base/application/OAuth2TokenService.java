@@ -1,4 +1,4 @@
-package com.example.incidentfrontend.incident.application.service;
+package com.example.incidentfrontend.base.application;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.client.RestTemplateBuilder;
