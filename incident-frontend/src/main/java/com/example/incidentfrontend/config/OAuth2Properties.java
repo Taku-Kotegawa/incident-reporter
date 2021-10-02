@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "oauth2")
 public class OAuth2Properties {
 
+    private String regId;
     private String issuerUri;
     private String authServerUri;
     private String resourceServerUri;

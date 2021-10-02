@@ -23,16 +23,13 @@ public class KeycloakService {
     private final OAuth2ClientProperties.Registration registration;
     private final OAuth2Properties oAuth2Properties;
 
-//    @Value("${logout-uri}")
-//    private String logoutUri;
-
     public KeycloakService(RestTemplate restTemplate,
                            OAuth2TokenService oAuth2TokenService,
                            OAuth2ClientProperties oAuth2ClientProperties,
                            OAuth2Properties oAuth2Properties) {
         this.restTemplate = restTemplate;
         this.oAuth2TokenService = oAuth2TokenService;
-        this.registration = oAuth2ClientProperties.getRegistration().get("todo-api");
+        this.registration = oAuth2ClientProperties.getRegistration().get(oAuth2Properties.getRegId());
         this.oAuth2Properties = oAuth2Properties;
     }
 
@@ -57,6 +54,6 @@ public class KeycloakService {
         ResponseEntity<String> responseEntity = restTemplate.exchange(requestEntity, String.class);
         // ログ出力
         log.info("{}", responseEntity.getStatusCode());
-        log.info("{}", responseEntity.getBody());
+        // log.info("{}", responseEntity.getBody());
     }
 }
